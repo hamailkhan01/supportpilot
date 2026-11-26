@@ -4,6 +4,7 @@ import type { RankedChunk } from "./search";
 import { HANDOFF_MARKER } from "./constants";
 
 const GREETING = /^\s*(hi|hello|hey|salam|assalam|good (morning|afternoon|evening)|yo)\b[\s!.?]*$/i;
+const SMALL_TALK = /^\s*(ok(ay)?|k|thanks?|thank you|thx|great|cool|nice|got it|perfect|awesome|alright|bye|goodbye)\b[\s!.?]*$/i;
 
 function cleanExcerpt(text: string): string {
   return text
@@ -20,6 +21,9 @@ function cleanExcerpt(text: string): string {
 export function buildDemoAnswer(question: string, context: RankedChunk[], settings: Settings): string {
   if (GREETING.test(question)) {
     return `Hi! I'm ${settings.assistantName}. Ask me anything about ${settings.businessName}.`;
+  }
+    if (SMALL_TALK.test(question)) {
+    return `Glad I could help! Anything else you'd like to know about ${settings.businessName}?`;
   }
   if (context.length === 0) {
     return `I couldn't find that in the ${settings.businessName} help docs. I can connect you with our support team so a person can help. ${HANDOFF_MARKER}`;
