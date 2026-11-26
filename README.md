@@ -2,7 +2,7 @@
 
 An AI support agent that answers customer questions **from a business's own help docs**, shows its sources, and **hands off to a human** (capturing the customer's name and email) when the docs don't have the answer.
 
-**Live demo:** _add your Vercel link here_ · **Demo video:** _add your Loom/YouTube link here_
+**Live demo:** [supportpilot-jet.vercel.app](https://supportpilot-jet.vercel.app)
 
 ![Home page with live demo](docs/screenshots/home.png)
 
